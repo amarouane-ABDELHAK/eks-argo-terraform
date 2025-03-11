@@ -9,6 +9,7 @@ spec:
     repoURL: 'https://github.com/amarouane-ABDELHAK/eks-argo-terraform'
     targetRevision: HEAD
     path: 'argocd/app'
+    branch: dev
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
