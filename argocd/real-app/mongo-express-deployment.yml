@@ -61,26 +61,27 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8081
-
----
-# Create ingress for mongo-express
-kind: Ingress
-metadata:
-  name: mongo-express-ingress
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/group.name: default
-    alb.ingress.kubernetes.io/target-type: ip
-spec:
-  rules:
-  - host: hec-api.nasa-impact.net
-    http:
-      paths:
-      - path: /mongo
-        pathType: Prefix
-        backend:
-          service:
-            name: mongoexpress-service
-            port:
-              number: 80
+  type: LoadBalancer
+  
+# ---
+# # Create ingress for mongo-express
+# kind: Ingress
+# metadata:
+#   name: mongo-express-ingress
+#   annotations:
+#     kubernetes.io/ingress.class: alb
+#     alb.ingress.kubernetes.io/scheme: internet-facing
+#     alb.ingress.kubernetes.io/group.name: default
+#     alb.ingress.kubernetes.io/target-type: ip
+# spec:
+#   rules:
+#   - host: hec-api.nasa-impact.net
+#     http:
+#       paths:
+#       - path: /mongo
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: mongoexpress-service
+#             port:
+#               number: 80
