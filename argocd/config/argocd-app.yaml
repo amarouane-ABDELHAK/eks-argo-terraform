@@ -1,15 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-app
+  name: nginx-app-blue
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/amarouane-ABDELHAK/eks-argo-terraform'
-    targetRevision: HEAD
+    targetRevision: dev
     path: 'argocd/app'
-    branch: dev
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
