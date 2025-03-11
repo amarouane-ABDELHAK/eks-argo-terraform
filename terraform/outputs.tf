@@ -1,5 +1,5 @@
 output "eks_connect" {
-  value = "aws eks --region eu-west-1 update-kubeconfig --name ${aws_eks_cluster.main.name}"
+  value = "aws eks --region us-west-2 update-kubeconfig --name ${aws_eks_cluster.main.name}"
 }
 
 output "argocd_server_load_balancer" {

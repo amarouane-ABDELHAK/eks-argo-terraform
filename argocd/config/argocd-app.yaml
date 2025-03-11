@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/saturnhead/eks-argo-terraform'
+    repoURL: 'https://github.com/amarouane-ABDELHAK/eks-argo-terraform'
     targetRevision: HEAD
     path: 'argocd/app'
   destination:
