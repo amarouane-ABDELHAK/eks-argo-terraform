@@ -101,7 +101,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_eks_cluster" "main" {
-  name     = "main-eks-cluster"
+  name     = "main-eks-cluster-w"
   role_arn = aws_iam_role.eks_cluster_role.arn
 
   vpc_config {
@@ -124,6 +124,7 @@ resource "aws_eks_node_group" "main" {
     max_size     = 3
     min_size     = 1
   }
+  
 
   tags = {
     Name = "main-eks-node-group"
@@ -131,7 +132,7 @@ resource "aws_eks_node_group" "main" {
 }
 
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "eks-role"
+  name = "eks-role-w"
 
   assume_role_policy = <<EOF
 {
@@ -160,7 +161,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_role_attachment" {
 }
 
 resource "aws_iam_role" "eks_node_role" {
-  name = "eks-node-role"
+  name = "eks-node-role-w"
 
   assume_role_policy = <<EOF
 {
