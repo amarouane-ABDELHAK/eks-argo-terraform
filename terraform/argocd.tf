@@ -45,3 +45,10 @@ data "kubernetes_service" "argocd_server" {
     namespace = helm_release.argocd.namespace
   }
 }
+
+resource "null_resource" "configure_argocd" {
+  depends_on = [ helm_release.argocd ]
+  provisioner "local-exec" {
+    command = "kubectl apply -f config/argocd-app.yaml"
+  }
+}

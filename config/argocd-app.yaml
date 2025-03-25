@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/amarouane-ABDELHAK/eks-apps'
+    targetRevision: HEAD
+    path: 'app/nginx_app'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
